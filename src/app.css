@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@source "../public/**/*.{html,js}";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-sm font-medium text-emerald-600 dark:text-emerald-400;
+  }
+
+  .section-title {
+    @apply mt-2 text-3xl font-semibold tracking-tight text-pretty text-zinc-900 sm:text-4xl dark:text-white;
+  }
+
+  .tech-pill {
+    @apply inline-flex items-center rounded-md bg-zinc-50 px-2.5 py-1 font-mono text-xs font-medium text-zinc-700 ring-1 ring-zinc-900/10 ring-inset dark:bg-white/5 dark:text-zinc-300 dark:ring-white/10;
+  }
+
+  .form-input {
+    @apply block w-full rounded-md bg-white px-3.5 py-2 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-300 placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-zinc-500 dark:focus:outline-emerald-500;
+  }
+}

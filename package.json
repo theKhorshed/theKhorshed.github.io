@@ -1,0 +1,13 @@
+{
+  "name": "khorshed.dev",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i src/app.css -o public/assets/app.css --watch",
+    "build": "tailwindcss -i src/app.css -o public/assets/app.css --minify",
+    "serve": "python3 -m http.server 8000 --directory public"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  }
+}
