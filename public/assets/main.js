@@ -41,8 +41,19 @@
       status.className = 'text-sm ' + (ok ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400');
     };
 
+    var resetCaptcha = function () {
+      if (window.hcaptcha) window.hcaptcha.reset();
+    };
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
+
+      var captcha = form.querySelector('[name="h-captcha-response"]');
+      if (captcha && !captcha.value) {
+        showStatus('Please complete the captcha.', false);
+        return;
+      }
+
       submit.disabled = true;
       showStatus('Sending…', true);
 
@@ -61,6 +72,7 @@
           showStatus('Something went wrong. Please try again in a moment.', false);
         })
         .finally(function () {
+          resetCaptcha();
           submit.disabled = false;
         });
     });
