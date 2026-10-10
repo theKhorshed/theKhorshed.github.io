@@ -352,12 +352,8 @@
             <textarea id="message" name="message" rows="5" required class="form-input mt-2"></textarea>
           </div>
 
-          <!-- hCaptcha via Web3Forms (enforced server-side once enabled in the Web3Forms dashboard). -->
-          <div class="h-captcha" data-captcha="true"></div>
-          <script>
-            document.currentScript.previousElementSibling.dataset.theme =
-              document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-          </script>
+          <!-- Invisible hCaptcha, rendered by main.js (enforced server-side once enabled in the Web3Forms dashboard). -->
+          <div data-captcha></div>
 
           <div class="flex flex-wrap items-center gap-4">
             <button type="submit" class="inline-flex items-center gap-2 rounded-md bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-emerald-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-emerald-500 dark:text-zinc-950 dark:hover:bg-emerald-400">
@@ -365,6 +361,12 @@
             </button>
             <p data-form-status class="text-sm" role="status" aria-live="polite"></p>
           </div>
+
+          <p class="text-xs text-zinc-500 dark:text-zinc-500">
+            Protected by hCaptcha. Its
+            <a href="https://www.hcaptcha.com/privacy" target="_blank" rel="noopener" class="underline hover:text-zinc-700 dark:hover:text-zinc-300">Privacy Policy</a> and
+            <a href="https://www.hcaptcha.com/terms" target="_blank" rel="noopener" class="underline hover:text-zinc-700 dark:hover:text-zinc-300">Terms</a> apply.
+          </p>
         </form>
       </div>
     </section>
@@ -384,6 +386,5 @@
   </footer>
 
   <script src="/assets/main.js" defer></script>
-  <script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 </html>
